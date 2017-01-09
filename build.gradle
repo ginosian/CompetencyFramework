@@ -1,0 +1,83 @@
+group 'CompetencyFramework'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE")
+        apply plugin: 'application'
+        apply plugin: 'idea'
+//        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+}
+
+jar {
+    baseName = 'competency-framework'
+    version = '1.0.0-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url "http://repository.primefaces.org" }
+}
+
+
+dependencies {
+
+    compile group: 'org.springframework.boot.experimental', name: 'spring-boot-starter-web-reactive', version: '1.4.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '1.4.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.4.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot', version: '1.4.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version: '4.3.3.RELEASE'
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.3.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version: '4.3.3.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web-reactive', version: '5.0.0.M1'
+
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    compile group: 'javax.validation', name: 'validation-api', version: '1.1.0.Final'
+    compile group: 'javax.el', name: 'el-api', version: '2.2'
+
+
+
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '4.3.8.Final'
+    compile group: 'org.hibernate', name: 'hibernate-c3p0', version: '4.3.8.Final'
+
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.38'
+
+
+    compile group: 'io.reactivex', name: 'rxjava', version: '1.2.2'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.21'
+    compile group: 'org.javassist', name: 'javassist', version: '3.20.0-GA'
+
+
+    compile group: 'org.primefaces', name: 'primefaces', version: '6.0'
+    compile group: 'org.primefaces.extensions', name: 'primefaces-extensions', version: '6.0.0'
+    compile group: 'org.primefaces.themes', name: 'all-themes', version: '1.0.10'
+    compile group: 'com.sun.faces', name: 'jsf-api', version: '2.2.13'
+
+    compile group: 'com.sun.faces', name: 'jsf-impl', version: '2.2.13'
+    compile group: 'org.apache.myfaces.core', name: 'myfaces-api', version: '2.2.11'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot.experimental:spring-boot-dependencies-web-reactive:0.1.0.BUILD-SNAPSHOT"
+    }
+}
+
+
+
+

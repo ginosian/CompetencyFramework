@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:P="http://java.sun.com/jsf/html"
+      dir="ltr">
+
+
+<h:body>
+    <h:form id="employeesListId">
+        <div>
+            <p:dataTable var="employee">
+
+                <p:column headerText="Synergik name">
+                    <P:outputText value="#{smallNumberBean.smallNumber}"/>
+                </p:column>
+
+                <p:column headerText="Synergik birthday date"
+                          pattern="dd/MM/yyyy">
+                </p:column>
+
+                <p:column headerText="Position"
+                          colspan="2">
+                </p:column>
+
+            </p:dataTable>
+        </div>
+    </h:form>
+</h:body>
+
+</html>
